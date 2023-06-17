@@ -28,24 +28,10 @@ print(f"Your random ordered password is : {ordered_password}")
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-# Personal Attempt # 1
+# Attempt no.2
 
-unordered_password = ""
-total_length = nr_letters + nr_symbols + nr_numbers
-remaining_characters = [nr_letters, nr_symbols, nr_numbers]
-total_characters = [letters, symbols, numbers]
-type_of_characters = len(total_characters)
-
-for index in range(total_length):
-    type = random.randint(0, type_of_characters - 1)
-    
-    unordered_password += random.choice(total_characters[type])
-    
-    remaining_characters[type] -= 1
-
-    if remaining_characters[type] == 0:
-        total_characters.pop(type)
-        type_of_characters -= 1
-
+password_as_list = list(ordered_password)
+random.shuffle(password_as_list) 
+unordered_password = ''.join(password_as_list)
 
 print(f"Your random unordered password is : {unordered_password}")
